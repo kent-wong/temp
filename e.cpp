@@ -40,6 +40,7 @@ public:
 	const string title_name() const;
 	const string& get_title() const;
 	void print(ostream& out) const;
+	void set_title(const string& title);
 private:
 	string m_title;
 };
@@ -58,11 +59,16 @@ const string& Manager::get_title() const {
 	return m_title;
 }
 
+void Manager::set_title(const string& title) {
+	m_title = title;
+}
+
 const string Manager::title_name() const {
 	return string(m_title + ": " + m_name);
 }
 
 int main() {
+	/*
 	Employee bob("Bob Jones", "123456");
 	Manager bill("Bill Smith", "666666", "VIP");
 
@@ -79,6 +85,25 @@ int main() {
 	string a = "Employee:";
 	bob.print(cout, a);
 	//bill.print(cout, a);
+	*/
+
+
+	Manager bill("Bill Smith", "666666", "VIP");
+	bill.print(cout);
+
+	Employee *p = &bill;
+	p->print(cout);
+
+	Employee& em = bill;
+	em.print(cout);
+
+	//bill.set_title("VVV");
+	//bill.print(cout);
+
+
+
+
+
 
 	return 0;
 }
